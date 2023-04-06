@@ -1,0 +1,14 @@
+.popup__button-close{
+    all: unset;
+    background-image: url(../../../image/logo/Close-Icon.svg);
+    min-width: 20px;
+    min-height: 20px;
+    /*margin-bottom: 16px;
+    margin-left: 60%;
+    align-self: end;
+    margin-right: 5%;
+    margin-left: auto;*/
+    position: relative;
+    bottom: 13px;
+    left: 93%;
+}

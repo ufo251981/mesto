@@ -1,0 +1,21 @@
+.profile__image{
+    /*max-width: px;*/
+    max-height: 120px;
+    border-radius: 50%;
+    margin: 41px 0 0 32%;
+    grid-column: 1/-1;
+    grid-row: 1;
+}
+
+@media screen and (min-width: 600px) {
+    .profile__image{
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .profile__image{
+        margin: 41px 0 0 0;
+    }
+}

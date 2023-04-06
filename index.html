@@ -5,97 +5,104 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="body">
   <header class="header">
-    <img src="./image/Vector.svg" alt="Логотип" class="header__logo">
+    <img src="./image/logo/logo-full.svg" alt="Логотип" class="header__logo">
   </header>
   <main class="main">
     <section class="profile">
       <img src="./image/Jacques-yves.jpg" alt="Жак-Ив Кусто" class="profile__image">
-      <h1 class="profile__info">
-        Жак-Ив Кусто
-      </h1>
+      <div class="profile__label">
+        <h1 class="profile__info">
+          Жак-Ив Кусто
+        </h1>
+        <p class="profile__text">
+          Исследователь&nbsp;океана
+        </p>
+      </div>
       <button class="profile__edit-button">
       </button>
-      <p class="profile__text">
-        Исследователь океана
-      </p>
       <button class="profile__add-button">
       </button>
     </section>
     <section class="places">
       <div class="place">
-        <img src="./image/kirill-pershin-1088404-unsplash.jpg" alt="" class="place__image">
+        <img src="./image/kirill-pershin-karachaevsk-unsplash.jpg" alt="" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Карачаевск
           </h2>
-          <img src="" alt="" class="place__like">
+          <img src="./image/logo/Group.svg" alt="" class="place__like">
         </div>
       </div>
       <div class="place">
-        <img src="./image/alexey-yurasov--3kied7rf3M-unsplash.jpg" alt="Каменистый пляж, Анапа" class="place__image">
+        <img src="./image/egor-myznik-roza-hutor-unsplash.jpg" alt="Роза хутор" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
-            Анапа
+            Роза хутор
           </h2>
-          <img src="" alt="" class="place__like">
+          <img src="./image/logo/Group.svg" alt="" class="place__like">
         </div>
       </div>
       <div class="place">
-        <img src="./image/kirill-pershin-1404681-unsplash.jpg" alt="" class="place__image">
+        <img src="./image/kirill-pershin-elbrus-unsplash.jpg" alt="" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Гора Эльбрус
           </h2>
-          <img src="" alt="" class="place__like">
+          <img src="./image/logo/Group.svg" alt="" class="place__like">
         </div>
       </div>
       <div class="place">
-        <img src="./image/nikolay-tengerekov-6geaWUBIzXU-unsplash.jpg" alt="" class="place__image">
+        <img src="./image/nikolay-tengerekov-altay-unsplash.jpg" alt="" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Алтай
           </h2>
-          <img src="" alt="" class="place__like">
+          <img src="./image/logo/Group.svg" alt="" class="place__like">
         </div>
       </div>
       <div class="place">
-        <img src="./image/kirill-pershin-1556355-unsplash.jpg" alt="" class="place__image">
+        <img src="./image/kirill-pershin-dombay-unsplash.jpg" alt="" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Домбай
           </h2>
-          <img src="" alt="" class="place__like">
+          <img src="./image/logo/Group.svg" alt="" class="place__like">
         </div>
       </div>
       <div class="place">
-        <img src="./image/daniil-silantev-_wcxEHwbbXw-unsplash.jpg" alt="" class="place__image">
+        <img src="./image/daniil-silantev-perm-unsplash.jpg" alt="" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Пермский край
           </h2>
-          <img src="" alt="" class="place__like">
+          <img src="./image/logo/Group.svg" alt="" class="place__like">
         </div>
       </div>
     </section>
+    <div class="popup">
+      <button class="popup__button-close"></button>
+      <div class="popup__container">
+        <h2 class="popup__title">
+          Редактировать профиль
+        </h2>
+        <div class="popup__label">
+          <input type="text" placeholder="Жак-Ив Кусто" name="" id="" class="popup__name">
+        </div>
+        <div class="popup__label">
+          <input type="text" placeholder="Исследователь океана" name="" id="" class="popup__profession">
+        </div>
+        <button class="popup__button-save">Сохранить</button>
+      </div>
+    </div>
   </main>
   <footer class="footer">
     <p class="footer__copyright">
       © 2020 Mesto Russia
     </p>
   </footer>
-  <div class="popup">
-    <button class="popup__button-close"></button>
-    <div class="popup__container">
-      <h2 class="popup__title">
-
-      </h2>
-      <input type="text" name="" id="" class="popup__name">
-      <input type="text" name="" id="" class="popup__profession">
-      <button class="popup__button-save"></button>
-    </div>
-  </div>
 </body>
 </html>
