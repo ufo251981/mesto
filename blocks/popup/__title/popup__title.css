@@ -7,3 +7,17 @@
     margin: 0 auto 75px;
     padding-top: 25px;
 }
+
+@media screen and (min-width: 320px) {
+    .popup__title{
+        font-size: calc( (100vw - 320px)/(1280 - 320) * (24 - 18) + 18px);
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .popup__title{
+        margin-left: 36px;
+        padding-top: 38px;
+        margin-bottom: 47px;
+    }
+}

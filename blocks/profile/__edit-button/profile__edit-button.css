@@ -17,7 +17,7 @@
     }
 }*/
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
     .profile__edit-button{
         /*margin-left: 7%;*/
         grid-column: 3;
@@ -29,8 +29,20 @@
     }
 }
 
+@media screen and (min-width: 1024px) {
+    .profile__edit-button{
+        margin-left: 189%;
+    }
+}
+
 @media screen and (min-width: 1200px) {
     .profile__edit-button{
-        margin-left: 8%;
+        margin-left: 24%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .profile__edit-button{
+        margin-left: 9%;
     }
 }

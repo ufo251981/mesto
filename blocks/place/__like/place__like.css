@@ -1,3 +1,8 @@
 .place__like{
+    all: unset;
     margin-right: 7%;
+    background-image: url(../../../image/logo/heart.svg);
+    background-repeat: no-repeat;
+    min-width: 22px;
+    min-height: 19px;
 }

@@ -3,7 +3,7 @@
     min-width: 282px;
     min-height: 50px;
     display: block;
-    margin: 27px auto 0;
+    margin: 34px auto 0;
     background-image: url(../../../image/logo/Add-Button.svg);
     background-repeat: no-repeat;
     background-size: contain;
@@ -11,7 +11,7 @@
     grid-column: 1/-1;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
     .profile__add-button{
         grid-column: 4;
         grid-row: 1;

@@ -3,6 +3,7 @@
     background-image: url(../../../image/logo/Close-Icon.svg);
     min-width: 20px;
     min-height: 20px;
+    background-size: contain;
     /*margin-bottom: 16px;
     margin-left: 60%;
     align-self: end;
@@ -11,4 +12,13 @@
     position: relative;
     bottom: 13px;
     left: 93%;
+}
+
+@media screen and (min-width: 500px) {
+    .popup__button-close{
+        min-width: 32px;
+        min-height: 32px;
+        bottom: 5px;
+        left: 102%;
+    }
 }

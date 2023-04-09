@@ -4,3 +4,9 @@
     background-color: #fff;
     padding-bottom: 19px;
 }
+
+@media screen and (min-width: 500px) {
+    .popup__container{
+        padding-bottom: 35px;
+    }
+}

@@ -1,0 +1,5 @@
+.opacity-save:hover{
+    opacity: 0.8;
+    transition: ease 0.3s;
+    cursor: pointer;
+}
