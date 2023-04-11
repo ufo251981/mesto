@@ -9,8 +9,7 @@
 @media screen and (min-width: 700px) {
     .profile__image {
         grid-column: 1;
-        grid-row: 1/-1
-        ;
+        grid-row: 1/-1;
     }
 }
 
