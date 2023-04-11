@@ -1,8 +1,14 @@
-.place__like{
+.place__like {
     all: unset;
     margin-right: 7%;
     background-image: url(../../../image/logo/heart.svg);
     background-repeat: no-repeat;
     min-width: 22px;
     min-height: 19px;
+}
+
+.place__like:hover {
+    opacity: 0.5;
+    transition: opacity ease-in-out 0.6s;
+    cursor: pointer;
 }

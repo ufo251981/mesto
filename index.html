@@ -8,99 +8,103 @@
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="body">
+  <!--Шапка сайта с логотипом-->
   <header class="header">
     <img src="./image/logo/logo-full.svg" alt="Логотип" class="header__logo">
   </header>
+  <!--Основной контент-->
   <main class="main">
+    <!--Основной блок-->
     <section class="profile">
       <img src="./image/Jacques-yves.jpg" alt="Жак-Ив Кусто" class="profile__image">
       <div class="profile__label">
-        <h1 class="profile__info profile__info_name_value">
-          Жак-Ив Кусто
-        </h1>
-        <p class="profile__text profile__text_name_value">
-          Исследователь&nbsp;океана
-        </p>
+        <h1 class="profile__info">Жак-Ив Кусто</h1>
+        <button class="profile__edit-button" type="button">
+        </button>
       </div>
-      <button class="profile__edit-button profile__edit-button_open-popup hover-opacity" type="button">
-      </button>
-      <button class="profile__add-button hover-opacity" type="button">
+      <p class="profile__text">Исследователь&nbsp;океана</p>
+      <button class="profile__add-button" type="button">
       </button>
     </section>
+    <!--Блок с фото мест-->
     <section class="places">
-      <div class="place">
+      <article class="place">
         <img src="./image/kirill-pershin-karachaevsk-unsplash.jpg" alt="Карачаевск" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Карачаевск
           </h2>
-          <span class="place__like opacity-like"></span>
+          <button type="button" class="place__like"></button>
         </div>
-      </div>
-      <div class="place">
+      </article>
+      <article class="place">
         <img src="./image/egor-myznik-roza-hutor-unsplash.jpg" alt="Роза хутор" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Роза хутор
           </h2>
-          <span class="place__like opacity-like"></span>
+          <button type="button" class="place__like"></button>
         </div>
-      </div>
-      <div class="place">
+      </article>
+      <article class="place">
         <img src="./image/kirill-pershin-elbrus-unsplash.jpg" alt="Гора Эльбрус" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Гора Эльбрус
           </h2>
-          <span class="place__like opacity-like"></span>
+          <button type="button" class="place__like"></button>
         </div>
-      </div>
-      <div class="place">
+      </article>
+      <article class="place">
         <img src="./image/nikolay-tengerekov-altay-unsplash.jpg" alt="Алтай" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Алтай
           </h2>
-          <span class="place__like opacity-like"></span>
+          <button type="button" class="place__like"></button>
         </div>
-      </div>
-      <div class="place">
+      </article>
+      <article class="place">
         <img src="./image/kirill-pershin-dombay-unsplash.jpg" alt="Домбай" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Домбай
           </h2>
-          <span class="place__like opacity-like"></span>
+          <button type="button" class="place__like"></button>
         </div>
-      </div>
-      <div class="place">
+      </article>
+      <article class="place">
         <img src="./image/daniil-silantev-perm-unsplash.jpg" alt="Пермский край" class="place__image">
         <div class="place__name">
           <h2 class="place__title">
             Пермский край
           </h2>
-          <span class="place__like opacity-like"></span>
+          <button type="button" class="place__like"></button>
         </div>
-      </div>
+      </article>
     </section>
+  </main>
+  <!--Подвал-->
   <footer class="footer">
     <p class="footer__copyright">
       © 2020 Mesto Russia
     </p>
   </footer>
+  <!--Попап-->
   <div class="popup">
-    <button class="popup__button-close popup__button-close_form_element hover-opacity" type="button"></button>
+    <button class="popup__button-close popup__button-close_form_element" type="button"></button>
     <div class="popup__container">
       <h2 class="popup__title">
-        Редактировать профиль
+        Редактировать&nbsp;профиль
       </h2>
-        <input type="text" value="Имя" name="user name" id="" class="popup__input popup__input_user_name">
-        <input type="text" value="О себе" name="user job" id="" class="popup__input popup__input_user_job">     
-      <!--<button class="popup__button-save popup__button-save_close_form opacity-save" type="submit">Сохранить</button>-->
-      <input type="submit" value="Сохранить" class="popup__button-save popup__button-save_close_form opacity-save">
+      <form class="popup__form">
+        <input type="text" value="" name="user-name" placeholder="Имя" class="popup__input popup__input_user_name">
+        <input type="text" value="" name="user-job" placeholder="О себе" class="popup__input popup__input_user_job">     
+        <input type="submit" value="Сохранить" class="popup__button-save popup__button-save_close_form">
+      </form>
     </div>
   </div>
-</main>
+  <!--Подключение скрипта-->
   <script src="./scripts/index.js"></script>
 </body>
 </html>

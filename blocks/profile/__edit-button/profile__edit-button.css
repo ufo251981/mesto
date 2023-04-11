@@ -1,48 +1,33 @@
-.profile__edit-button{
+.profile__edit-button {
     all: unset;
-    min-width: 18px;
-    min-height: 18px;
-    background-image: url(../../../image/logo/Edit-Button-full.svg);
-    margin-left: 2%;
+    min-width: 16px;
+    min-height: 16px;
+    background-image: url(../../../image/logo/pen.svg);
+    margin-left: 4px;
+    border: 1px solid #ffffff;
     background-repeat: no-repeat;
-    background-size: contain;
-    grid-row: 2;
-    grid-column: 2;
+    background-size: auto;
+    background-position: center;
     align-self: center;
 }
 
-/*@media screen and (min-width: 375px) {
-    .profile__edit-button{
-        margin-left: 3%;
-    }
-}*/
+.profile__edit-button:hover {
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: border ease-in-out 0.6s;
+}
 
 @media screen and (min-width: 700px) {
-    .profile__edit-button{
-        /*margin-left: 7%;*/
-        grid-column: 3;
-        grid-row: 1;
+    .profile__edit-button {
         min-width: 24px;
         min-height: 24px;
-        margin-left: 142%;
         margin-top: 16px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .profile__edit-button{
-        margin-left: 189%;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .profile__edit-button{
-        margin-left: 24%;
+        margin-left: 0;
     }
 }
 
 @media screen and (min-width: 1280px) {
-    .profile__edit-button{
-        margin-left: 9%;
+    .profile__edit-button {
+        margin-left: 15px;
     }
 }

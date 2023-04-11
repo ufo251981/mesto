@@ -1,21 +1,21 @@
-.profile__image{
-    /*max-width: px;*/
+.profile__image {
     max-height: 120px;
     border-radius: 50%;
-    margin: 41px 0 0 32%;
-    grid-column: 1/-1;
+    margin: 41px auto 0;
     grid-row: 1;
+    object-fit: cover;
 }
 
 @media screen and (min-width: 700px) {
-    .profile__image{
+    .profile__image {
         grid-column: 1;
-        grid-row: 1;
+        grid-row: 1/-1
+        ;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .profile__image{
+    .profile__image {
         margin: 41px 0 0 0;
     }
 }

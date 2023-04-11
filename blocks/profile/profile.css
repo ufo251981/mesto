@@ -1,11 +1,21 @@
-.profile{
+.profile {
     display: grid;
-    grid-template-columns: 1fr 17%;
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
+
 }
 
 @media screen and (min-width: 700px) {
-    .profile{
+    .profile {
         grid-template-columns: 17% 35% 6% auto;
+        grid-template-rows: 100px 70px;
+        width: calc(100% - 2 * 19px);
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .profile {
+        margin: 0;
     }
 }
