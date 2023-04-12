@@ -3,14 +3,13 @@
     border-radius: 10px;
     background-color: #fff;
     min-width: 282px;
-    min-height: 322px;
+    padding-bottom: 20px;
 }
 
 @media screen and (min-width: 500px) {
     .popup__container {
         min-width: 430px;
-        max-height: 330px;
-        padding-bottom: 4px;
-        padding-top: 4px;
+        padding-bottom: 35px;
+        padding-top: 0;
     }
 }

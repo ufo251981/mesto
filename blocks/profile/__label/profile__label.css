@@ -1,6 +1,6 @@
 .profile__label {
     display: flex;
-    width: calc(100% - 2 * 65px);
+    width: 282px;
     margin: 26px auto 0;
     grid-row: 2;
     justify-content: center;
