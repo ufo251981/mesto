@@ -3,7 +3,7 @@
     min-width: 16px;
     min-height: 16px;
     background-image: url(../../../image/logo/pen.svg);
-    margin-left: 4px;
+    margin-left: 5px;
     border: 1px solid #ffffff;
     background-repeat: no-repeat;
     background-size: auto;
@@ -13,8 +13,8 @@
 
 .profile__edit-button:hover {
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    transition: border ease-in-out 0.6s;
+    opacity: 0.6; 
+    transition: opacity ease-in-out 0.6s;
 }
 
 @media screen and (min-width: 700px) {
@@ -26,7 +26,13 @@
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1200px) {
+    .profile__edit-button {
+        margin-left: 4px;
+    }
+}
+
+@media screen and (min-width: 1270px) {
     .profile__edit-button {
         margin-left: 15px;
     }

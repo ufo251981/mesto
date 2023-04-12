@@ -5,20 +5,21 @@
     min-height: 20px;
     background-size: contain;
     position: relative;
-    left: 65.5%;
-    top: 155px;
+    left: 262px;
+    top: -36px;
 }
 
 .popup__button-close:hover {
     opacity: 0.6;
     transition: opacity ease-in-out 0.6s;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 500px) {
     .popup__button-close {
         min-width: 32px;
         min-height: 32px;
-        bottom: 5px;
-        left: 66%;
+        top: -43px;
+        left: 438px;
     }
 }

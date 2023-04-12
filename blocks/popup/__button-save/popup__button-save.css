@@ -6,7 +6,7 @@
     width: calc(100% - 2 * 21px);
     min-height: 50px;
     display: block;
-    margin: 42px auto 0;
+    margin: 43px auto 0;
     font-style: normal;
     font-weight: 400;
     font-size: calc( (100vw - 320px)/(1280 - 320) * (18 - 14) + 14px);
@@ -19,6 +19,7 @@
 .popup__button-save:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transition: background-color ease-in-out 0.6s;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 500px) {

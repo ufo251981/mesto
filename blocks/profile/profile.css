@@ -7,7 +7,7 @@
 
 @media screen and (min-width: 700px) {
     .profile {
-        grid-template-columns: 17% 35% 6% auto;
+        grid-template-columns: 126px 317px auto;
         grid-template-rows: 100px 70px;
         width: calc(100% - 2 * 19px);
         margin: auto;

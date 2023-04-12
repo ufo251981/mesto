@@ -4,30 +4,31 @@
     font-size: calc( (100vw - 320px)/(1280 - 320) * (42 - 27) + 27px);
     line-height: 33px;
     min-width: 195px;
-    margin: 0 0 0 28px;
+    margin: 0 0 0 23px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
 }
 
 @media screen and (min-width: 700px) {
     .profile__info {
         min-width: 275px;
-        margin-left: 70px;
-        text-align: center;
+        margin-left: 0;
+        text-align: left;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .profile__info {
-        margin-left: 40px;
+        margin-left: 0;
         line-height: 48px;
-        min-width: 300px;
+        min-width: 293px;
         min-height: 50px;
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1270px) {
     .profile__info {
         font-size: 42px;
         margin-left: 52px;

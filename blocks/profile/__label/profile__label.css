@@ -13,17 +13,19 @@
         margin-top: 62px;
         max-width: 350px;
         width: 100%;
+        margin-left: 11px;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .profile__label {
-        margin-left: 50px;
+        margin-left: 10px;
+        justify-content: flex-end;
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1270px) {
     .profile__label {
-        margin-left: 0;
+        margin-left: 41px;
     }
 }

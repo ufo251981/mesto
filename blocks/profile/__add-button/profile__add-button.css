@@ -25,13 +25,19 @@
         grid-row: 1;
         min-width: 146px;
         margin-top: 75px;
-        margin-left: 124px;
+        margin-left: 4px;
         background-size: auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .profile__add-button {
+        margin-left: 28px;
     }
 }
 
 @media screen and (min-width: 1270px) {
     .profile__add-button {
-        margin-left: 243px;
+        margin-left: 287px;
     }
 }
