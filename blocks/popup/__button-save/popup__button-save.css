@@ -12,7 +12,7 @@
     font-size: calc( (100vw - 320px)/(1280 - 320) * (18 - 14) + 14px);
     line-height: 17px;
     text-align: center;
-    border: 2px solid #fff;
+    border: none;
     border-radius: 2px;
 }
 

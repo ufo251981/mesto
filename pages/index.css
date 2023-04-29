@@ -19,11 +19,13 @@
 /*Блок с фото мест*/
 @import url(../blocks/places/places.css);
 @import url(../blocks/place/place.css);
+@import url(../blocks/place/__image-block/place__image-block.css);
 @import url(../blocks/place/__image/place__image.css);
 @import url(../blocks/place/__name/place__name.css);
 @import url(../blocks/place/__title/place__title.css);
 @import url(../blocks/place/__like/place__like.css);
 @import url(../blocks/place/__like/_active/place__like_active.css);
+@import url(../blocks/place/__delete-button/place__delete-button.css);
 /*Подвал*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
@@ -36,3 +38,10 @@
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__button-save/popup__button-save.css);
+/*Попап с картинкой*/
+@import url(../blocks/popup-zoom/popup-zoom.css);
+@import url(../blocks/popup-zoom/__button-close/popup-zoom__button-close.css);
+@import url(../blocks/popup-zoom/__figure/popup-zoom__figure.css);
+@import url(../blocks/popup-zoom/__image/popup-zoom__image.css);
+@import url(../blocks/popup-zoom/__image-text/popup-zoom__image-text.css);
+@import url(../blocks/popup-zoom/_active/popup-zoom_active.css);

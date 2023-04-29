@@ -1,0 +1,14 @@
+.popup-zoom__image {
+    max-width: 75vw;
+    max-height: 75vh;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 299px;
+    aspect-ratio: 1/1;
+}
+
+@media screen and (min-width: 768px) {
+    .popup-zoom__image {
+        aspect-ratio: auto;
+    }
+}
