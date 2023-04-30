@@ -1,4 +1,4 @@
-.popup-zoom__button-close {  
+.popup__button-close-zoom {  
     all: unset;
     background-image: url(../../../image/logo/Close-Icon.svg);
     min-width: 20px;
@@ -10,14 +10,14 @@
     right: 0;
 }
 
-.popup-zoom__button-close:hover {
+.popup__button-close-zoom:hover {
     opacity: 0.6;
     transition: opacity ease-in-out 0.6s;
     cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
-    .popup-zoom__button-close {
+    .popup__button-close-zoom {
         min-width: 32px;
         min-height: 32px;
         top: -40px;

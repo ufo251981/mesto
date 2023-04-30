@@ -1,10 +1,10 @@
-.popup-zoom__figure {
+.popup__figure {
     position: relative;
     margin: 25px 0 0;
 }
 
 @media screen and (min-width: 768px) {
-    .popup-zoom__figure {
+    .popup__figure {
         margin-top: 11px;
     }
 }
