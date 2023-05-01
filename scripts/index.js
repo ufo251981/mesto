@@ -6,9 +6,9 @@ const profileProfession = document.querySelector('.profile__text');
 //Объявление переменных попапа заглавного блока
 const popupProfile = document.querySelector('.popup_add_new-profile')//
 const formElement = document.querySelector('.popup__form');
-const closeButton = document.querySelector('.popup__button-close');
 const nameInput = document.querySelector('.popup__input_user_name'); 
-const jobInput = document.querySelector('.popup__input_user_job'); 
+const jobInput = document.querySelector('.popup__input_user_job');
+const popupButton = document.querySelectorAll('.popup__button') 
 
 //Объявление переменных попапа добавляющего картинки
 const addButton = document.querySelector('.profile__add-button');
@@ -17,11 +17,13 @@ const placeSave = document.querySelector('.popup__button-save_new-place');
 const popupPlace = document.querySelector('.popup_add_new-place');
 const placeName = document.querySelector('.popup__input_place_name');
 const placeLink = document.querySelector('.popup__input_place_link');
+const formAddImage = document.querySelector('.popup__form_add_new-place');
 
+//Объявление переменных template блока
 const templatePlace = document.getElementById('template');
 const templatePlaceContainer = document.querySelector('.places');
-const formAddImage = document.querySelector('.popup__form_add_new-place')
 
+//Объявление переменных попапа увеличивающего картинки
 const popupZoom = document.querySelector('.popup_zoom');
 const popupZoomImage = popupZoom.querySelector('.popup__image');
 const popupZoomText = popupZoom.querySelector('.popup__image-text');
@@ -31,10 +33,17 @@ const popupZoomButton = popupZoom.querySelector('.popup__button-close-zoom');
 function openPopup(popup) {
     popup.classList.add('popup_opened');
 }
+
 //Функция закрывающая попапы
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
 }
+
+popupButton.forEach((   button) => {
+    const popup = button.closest('.popup');
+    button.addEventListener('click', () => closePopup(popup));
+});
+
 //Функция добавляющая изменения в главный блок
 function handleFormSubmit(evt) {
     evt.preventDefault();
@@ -47,9 +56,7 @@ editButton.addEventListener('click', function() {
     nameInput.value = profileName.textContent;
     jobInput.value = profileProfession.textContent;
 });
-closeButton.addEventListener('click', function() {
-    closePopup(popupProfile)
-});
+
 formElement.addEventListener('submit', handleFormSubmit);
 formAddImage.addEventListener('submit', handleAddImage);
 
@@ -67,40 +74,43 @@ function handleAddImage(evt) {
 
     closePopup(popupPlace);
 }
+
 //Окрытие попап Новое место
 addButton.addEventListener('click', function() {
     openPopup(popupPlace)
 });
-//Закрытие попап Новое место
-placeClose.addEventListener('click', function() {
-    closePopup(popupPlace)
-});
 
 //Функция создающая карточки на странице
 function addNewPlace(imageCard) {
+
     //Клонируем блок кода из темплэйт контейнера
     const createNewCard = templatePlace.content.querySelector('.place').cloneNode(true);
+
     //Назначаем переменные
     const deleteButton = createNewCard .querySelector('.place__delete-button');
     const likeButton = createNewCard .querySelector('.place__like');
     const imagePlace = createNewCard .querySelector('.place__image');
     const titlePlace = createNewCard .querySelector('.place__title');
+
     //Берём значения из массива и присваиваем их переменным клонированного блока
     imagePlace.src = imageCard.link;
     imagePlace.alt = imageCard.name;
     titlePlace.textContent = imageCard.name;
+
     //Функция удаляющая карточки со страницы
     function deleteCard() {
         createNewCard.remove();
     } 
+
     //Функция ставящая и убирающая лайк
     function likeImage() {
         likeButton.classList.toggle('place__like_active');
     }
-    //Функция 
+    
+    //Функция вызова попап с картинкой
     function zoom() {
-        //popupZoom.classList.add('popup-zoom_active');
         popupZoomImage.src = imageCard.link;
+        popupZoomImage.alt = imageCard.name;
         popupZoomText.textContent = imageCard.name;
     }
 
@@ -110,9 +120,7 @@ function addNewPlace(imageCard) {
         openPopup(popupZoom)
         zoom()
     });
-    popupZoomButton.addEventListener('click', function() {
-        closePopup(popupZoom)
-    });
+    
     //
     
     return createNewCard;
