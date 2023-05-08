@@ -4,11 +4,11 @@ const profileName = document.querySelector('.profile__info');
 const profileProfession = document.querySelector('.profile__text');
 
 //Объявление переменных попапа заглавного блока
-const popupProfile = document.querySelector('.popup_add_new-profile')//
+const popupProfile = document.querySelector('.popup_add_new-profile');
 const formElement = document.querySelector('.popup__form');
-const nameInput = document.querySelector('.popup__input_user_name'); 
+const nameInput = document.querySelector('.popup__input_user_name');
 const jobInput = document.querySelector('.popup__input_user_job');
-const popupButton = document.querySelectorAll('.popup__button') 
+const popupButtons = document.querySelectorAll('.popup__button');
 
 //Объявление переменных попапа добавляющего картинки
 const addButton = document.querySelector('.profile__add-button');
@@ -39,7 +39,7 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
 }
 
-popupButton.forEach((   button) => {
+popupButtons.forEach((   button) => {
     const popup = button.closest('.popup');
     button.addEventListener('click', () => closePopup(popup));
 });
@@ -79,7 +79,6 @@ function handleAddImage(evt) {
 addButton.addEventListener('click', function() {
     openPopup(popupPlace)
 });
-
 //Функция создающая карточки на странице
 function addNewPlace(imageCard) {
 
@@ -106,7 +105,7 @@ function addNewPlace(imageCard) {
     function likeImage() {
         likeButton.classList.toggle('place__like_active');
     }
-    
+
     //Функция вызова попап с картинкой
     function zoom() {
         popupZoomImage.src = imageCard.link;
@@ -120,10 +119,8 @@ function addNewPlace(imageCard) {
         openPopup(popupZoom)
         zoom()
     });
-    
-    //
-    
-    return createNewCard;
+    console.dir(imageCard)
+    return createNewCard; 
     
 }
 

@@ -5,19 +5,19 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     width: calc(100% - 2 * 22px);
-    margin: 0 auto 27px;
+    margin: 0 auto 5px;
     min-height: 28px;
 }
 
-.popup__input:nth-of-type(2) {
+.popup__input:last-child {
     margin-bottom: 0;
 }
 
 @media screen and (min-width: 500px) {
     .popup__input {
         width: calc(100% - 2 * 36px);
-        min-height: 31px;
+        min-height: 33px;
     }
 }
