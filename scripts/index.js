@@ -29,15 +29,72 @@ const popupZoomImage = popupZoom.querySelector('.popup__image');
 const popupZoomText = popupZoom.querySelector('.popup__image-text');
 const popupZoomButton = popupZoom.querySelector('.popup__button-close-zoom');
 
+formElement.addEventListener('submit', handleFormSubmit);
+formAddImage.addEventListener('submit', handleAddImage);
+//Окрытие попап Новое место
+addButton.addEventListener('click', function() {
+    openPopup(popupPlace)
+});
+// Закрытие при нажатии кнопки
+const popupElement = document.querySelector('.popup')
+
 //Функция открывающая попапы
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupEsc);
+    popupElement.addEventListener('click', closePopupOverlay);
 }
 
 //Функция закрывающая попапы
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupEsc);
+    popupElement.removeEventListener('click', closePopupOverlay);
 }
+
+function closePopupEsc(evt) {
+    if (evt.key === "Escape") {
+        const popup = document.querySelector('.popup_opened')
+        closePopup(popup)
+    }
+}
+
+// popupElement.addEventListener('click', closePopupOverlay)
+
+function closePopupOverlay() {
+    const popupEl = Array.from(document.querySelectorAll('.popup'));
+    popupEl.forEach((item) => {
+        item.addEventListener('click', (evt) => {
+            if( evt.target.classList.contains('popup')) {
+                closePopup(item)
+            }
+        });
+    });
+}
+/* 
+popupElements.addEventListener('click', (evt) => {
+    if( evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')){
+        closePopup(popupElements)
+    }
+}); */
+/* 
+function keyDown() {
+    ('keydown', (evt)  => {
+       
+    });
+} 
+
+const nameInputs = document.querySelectorAll('.popup__input') */
+
+// nameInputs.forEach((   input) => {
+//     const popup = input.closest('.popup__form');
+    
+// });
+
+// document.addEventListener('keydown', function(evt) {
+//     keyDown(evt)
+//     });
+
 
 popupButtons.forEach((   button) => {
     const popup = button.closest('.popup');
@@ -57,8 +114,6 @@ editButton.addEventListener('click', function() {
     jobInput.value = profileProfession.textContent;
 });
 
-formElement.addEventListener('submit', handleFormSubmit);
-formAddImage.addEventListener('submit', handleAddImage);
 
 //Функция добавляющая изменения в блок с картинками
 function handleAddImage(evt) {
@@ -75,10 +130,6 @@ function handleAddImage(evt) {
     closePopup(popupPlace);
 }
 
-//Окрытие попап Новое место
-addButton.addEventListener('click', function() {
-    openPopup(popupPlace)
-});
 //Функция создающая карточки на странице
 function addNewPlace(imageCard) {
 
@@ -119,7 +170,6 @@ function addNewPlace(imageCard) {
         openPopup(popupZoom)
         zoom()
     });
-    console.dir(imageCard)
     return createNewCard; 
     
 }

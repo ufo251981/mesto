@@ -1,4 +1,19 @@
-.popup__button-save_disaibled {
+.popup__button-save_disabled {
+    all: unset;
+    box-sizing: content-box;
+    width: calc(100% - 2 * 21px);
+    min-height: 50px;
+    display: block;
+    margin: 43px auto 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: calc( (100vw - 320px)/(1280 - 320) * (18 - 14) + 14px);
+    line-height: 17px;
+    text-align: center;
+    border-radius: 2px;
     background-color: #fff;
     opacity: 0.2;
+    color: #000;
+    border: 1px solid #000;
+    cursor: default;
 }
