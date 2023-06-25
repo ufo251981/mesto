@@ -15,7 +15,7 @@
     margin-bottom: 0;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
     .popup__input {
         width: calc(100% - 2 * 36px);
         min-height: 33px;

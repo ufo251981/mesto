@@ -9,7 +9,7 @@
     max-width: 238px;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
     .popup__error {
         width: calc(100% - 2 * 36px);
         max-width: 358px;
