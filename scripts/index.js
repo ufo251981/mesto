@@ -151,6 +151,7 @@ buttonEdit.addEventListener('click', handleChangeProfile);
 formProfile.addEventListener('submit', handleProfileFormSubmit);
 formAddImage.addEventListener('submit', handleAddImage);
 buttonAdd.addEventListener('click', function() {
+    formAddImage.reset()
     resetError(formAddImage);
     toggleButtonState(formPlaceResetInput, formPlaceResetButton, validationConfig.inactiveButtonClass)
     openPopup(popupPlace)
