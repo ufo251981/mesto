@@ -38,14 +38,12 @@ const popupElements = document.querySelectorAll('.popup')
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupEsc);
-    // popupElement.addEventListener('click', closePopupOverlay);
 }
 
 //Функция закрывающая попапы
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupEsc);
-    // popupElement.removeEventListener('click', closePopupOverlay);
 }
 
 // Закрытие по esc

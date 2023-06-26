@@ -7,11 +7,13 @@
     margin: 0 auto 3px;
     width: calc(100% - 2 * 22px);
     max-width: 238px;
+    height: 10px;
 }
 
 @media screen and (min-width: 600px) {
-    .popup__error {
+    .popup__error { 
         width: calc(100% - 2 * 36px);
         max-width: 358px;
+        height: 10px;
     }
 }
