@@ -1,7 +1,7 @@
-const initialCards = [
+export const initialCards = [
     {
         name: 'Карачаевск',
-        link: './image/kirill-pershin-karachaevsk-unsplash.jpg'
+        link: '/image/kirill-pershin-karachaevsk-unsplash.jpg'
     },
     {
         name: 'Пермь',
@@ -22,5 +22,5 @@ const initialCards = [
     {
         name: 'Алтай',
         link: './image/nikolay-tengerekov-altay-unsplash.jpg'
-    },
+    }
 ];
