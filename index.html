@@ -42,16 +42,16 @@
       <h2 class="popup__title">
         Редактировать&nbsp;профиль
       </h2>
-      <form name="profile" class="popup__form" novalidate>
+      <form name="profile" class="popup__form popup__form_edit-profile" novalidate>
         <div class="popup__input-container">
           <input id="name" type="text" required minlength="2" 
-          maxlength="40" value="" name="profile-name" placeholder="Имя" 
+          maxlength="40" name="profile-name" placeholder="Имя" 
           class="popup__input popup__input_user_name">
           <span class="popup__error popup-error-name"></span>
         </div>
         <div class="popup__input-container">
           <input id="text" type="text" required minlength="2" 
-          maxlength="200" value="" name="profile-text" 
+          maxlength="200" name="profile-text" 
           placeholder="О себе" 
           class="popup__input popup__input_user_job">
           <span class="popup__error popup-error-text"></span>
@@ -70,13 +70,13 @@
       <form name="place" class="popup__form popup__form_add_new-place" novalidate>
         <div class="popup__input-container">
           <input id="title" type="text" required minlength="2" 
-          maxlength="30" value="" name="place-title" 
+          maxlength="30" name="place-title" 
           placeholder="Название" 
           class="popup__input popup__input_place_name">
           <span class="popup__error popup-error-title"></span>
         </div>
         <div class="popup__input-container">
-          <input id="url" type="url" required value="" 
+          <input id="url" type="url" required
           name="place-links" placeholder="Ссылка на картинку" 
           class="popup__input popup__input_place_link">
           <span class="popup__error popup-error-url"></span>

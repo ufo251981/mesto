@@ -1,17 +1,13 @@
 export class Card{
-    constructor(data, templatePlace, handleZoomImage){
+    constructor(data, templateSelector, handleZoomImage){
         this._data = data,
-        this._src = data.link,
-        this._name = data.name,
-        this._templatePlace = templatePlace,
+        this._templateSelector = templateSelector,
         this._handleZoomImage = handleZoomImage
-        // console.log(this._handleZoomImage);
     }
     
     _createPlace() {
         //Клонируем блок кода из темплэйт контейнера
-        const createNewCard = this._templatePlace.content.querySelector('.place').cloneNode(true);        
-        // console.log(createNewCard);
+        const createNewCard = document.querySelector(this._templateSelector).content.querySelector('.place').cloneNode(true);        
         return createNewCard;   
     }
     
@@ -41,9 +37,9 @@ export class Card{
         this._titlePlace = this._cloneElement.querySelector('.place__title');
         this._deleteButton = this._cloneElement.querySelector('.place__delete-button');
         this._likeButton = this._cloneElement.querySelector('.place__like');
-        this._titlePlace.textContent = this._name;
-        this._imagePlace.src = this._src;
-        this._imagePlace.alt = this._name;
+        this._titlePlace.textContent = this._data.name;
+        this._imagePlace.src = this._data.link;
+        this._imagePlace.alt = this._data.name;
         this._setEventListener()
         return this._cloneElement;
     }

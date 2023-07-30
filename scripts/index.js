@@ -1,8 +1,8 @@
-import { Card } from "./Cards.js"
+import { Card } from "./Card.js";
 import { initialCards } from "./array.js"
 import { FormValidator } from "./FormValidator.js";
 import { validationConfig } from "./validate.js";
-const templatePlace = document.querySelector('#template');
+const templateSelector = '#template';
 const placesContainer = document.querySelector('.places')
 const namePlace = document.querySelector('.popup__input_place_name');
 const linkPlace = document.querySelector('.popup__input_place_link');
@@ -15,7 +15,7 @@ const nameProfile = document.querySelector('.profile__info');
 const professionProfile = document.querySelector('.profile__text');
 //Объявление переменных попапа заглавного блока
 const popupProfile = document.querySelector('.popup_add_new-profile');
-const formProfile = document.querySelector('.popup__form');
+const formProfile = document.querySelector('.popup__form_edit-profile');
 const nameInput = document.querySelector('.popup__input_user_name');
 const jobInput = document.querySelector('.popup__input_user_job');
 const buttonsPopup = document.querySelectorAll('.popup__button');
@@ -27,17 +27,17 @@ const popupElements = document.querySelectorAll('.popup')
 //Функция открывающая попапы
 function openPopup(popup) {
     popup.classList.add('popup_opened');
-    document.addEventListener('keydown', closePopupEsc);
+    document.addEventListener('keydown', closePopupByEsc);
 }
 
 //Функция закрывающая попапы
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', closePopupEsc);
+    document.removeEventListener('keydown', closePopupByEsc);
 }
 
 // Закрытие по esc
-function closePopupEsc(evt) {
+function closePopupByEsc(evt) {
     if (evt.key === "Escape") {
         const popup = document.querySelector('.popup_opened')
         closePopup(popup)
@@ -45,7 +45,7 @@ function closePopupEsc(evt) {
 }
 
 //  Закрытие по оверлэй
-function closePopupOverlay(evt) {
+function closePopupByOverlay(evt) {
     if (evt.target === evt.currentTarget) {
         closePopup(evt.currentTarget);
     }
@@ -61,7 +61,7 @@ function handleProfileFormSubmit(evt) {
 
 function handleChangeProfile() {
     formProfile.reset();
-    profileFormSubmitValidator.resetError()
+    profileFormSubmitValidator.resetValidationState()
     nameInput.value = nameProfile.textContent;
     jobInput.value = professionProfile.textContent;
     openPopup(popupProfile)
@@ -75,10 +75,10 @@ function handleZoomImage(data) {
     openPopup(popupZoom);    
 }
 
-function addNewImage(element) {
-    const card = new Card(element, templatePlace, handleZoomImage);
-    const cardElement = card.createCard();
-    return cardElement;    
+function createNewImage(element) {
+    const card = new Card(element, templateSelector, handleZoomImage);
+    return card.createCard();
+     
 }
 
 function addCard(card, container) {
@@ -92,7 +92,7 @@ const formAddNewImageValidator = new FormValidator(validationConfig, formAddImag
 formAddNewImageValidator.enableValidation();
 
 popupElements.forEach((item) => {
-    item.addEventListener('click', closePopupOverlay)
+    item.addEventListener('click', closePopupByOverlay)
 }); 
 
 buttonsPopup.forEach((   button) => {
@@ -107,20 +107,18 @@ formProfile.addEventListener('submit', handleProfileFormSubmit);
 formAddImage.addEventListener('submit', (evt) => {
     evt.preventDefault()
     const dataName = {name: namePlace.value, link: linkPlace.value};
-    const card = new Card(dataName, templatePlace, handleZoomImage);
-    addCard(placesContainer, card.createCard());
+    addCard(placesContainer, createNewImage(dataName));
     closePopup(popupPlace);
 });
 
 buttonAdd.addEventListener('click', function() {
     formAddImage.reset()
-    formAddNewImageValidator.resetError();
-    // toggleButtonState(formPlaceResetInput, formPlaceResetButton, validationConfig.inactiveButtonClass)
+    formAddNewImageValidator.resetValidationState();
     openPopup(popupPlace)
 });
 
 //Функция создающая карточки на странице
 
 initialCards.forEach(element => {
-    addCard(placesContainer, addNewImage(element));
+    addCard(placesContainer, createNewImage(element));
 });
