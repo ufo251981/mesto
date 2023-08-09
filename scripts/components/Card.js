@@ -1,4 +1,4 @@
-export class Card{
+export default class Card{
     constructor(data, templateSelector, handleZoomImage){
         this._data = data,
         this._templateSelector = templateSelector,
@@ -37,9 +37,9 @@ export class Card{
         this._titlePlace = this._cloneElement.querySelector('.place__title');
         this._deleteButton = this._cloneElement.querySelector('.place__delete-button');
         this._likeButton = this._cloneElement.querySelector('.place__like');
-        this._titlePlace.textContent = this._data.name;
+        this._titlePlace.textContent = this._data.title;
         this._imagePlace.src = this._data.link;
-        this._imagePlace.alt = this._data.name;
+        this._imagePlace.alt = this._data.title;
         this._setEventListener()
         return this._cloneElement;
     }

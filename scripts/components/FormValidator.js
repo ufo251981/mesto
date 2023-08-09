@@ -1,4 +1,4 @@
-export class FormValidator {
+export default class FormValidator {
   constructor(config, form) {
       this._inputSelector = config.inputSelector;
       this._submitButtonSelector = config.submitButtonSelector;
@@ -17,7 +17,6 @@ export class FormValidator {
       input.classList.add(this._inputErrorClass);
       errorElement.textContent = input.validationMessage;
       errorElement.classList.add(this._errorClass);
-      
   }
 
   _hideInputError(errorElement, input)  {
