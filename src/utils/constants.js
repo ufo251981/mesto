@@ -1,9 +1,9 @@
-const karachaevsk = new URL('../../image/kirill-pershin-karachaevsk-unsplash.jpg', import.meta.url);
-const perm = new URL('../../image/daniil-silantev-perm-unsplash.jpg', import.meta.url);
-const roza = new URL('../../image/egor-myznik-roza-hutor-unsplash.jpg', import.meta.url);
-const dombay = new URL('../../image/kirill-pershin-dombay-unsplash.jpg', import.meta.url);
-const elbrus = new URL('../../image/kirill-pershin-elbrus-unsplash.jpg', import.meta.url);
-const altay = new URL('../../image/nikolay-tengerekov-altay-unsplash.jpg', import.meta.url);
+const karachaevsk = new URL('../image/kirill-pershin-karachaevsk-unsplash.jpg', import.meta.url);
+const perm = new URL('../image/daniil-silantev-perm-unsplash.jpg', import.meta.url);
+const roza = new URL('../image/egor-myznik-roza-hutor-unsplash.jpg', import.meta.url);
+const dombay = new URL('../image/kirill-pershin-dombay-unsplash.jpg', import.meta.url);
+const elbrus = new URL('../image/kirill-pershin-elbrus-unsplash.jpg', import.meta.url);
+const altay = new URL('../image/nikolay-tengerekov-altay-unsplash.jpg', import.meta.url);
 
 const initialCards = [
   {

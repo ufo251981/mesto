@@ -14,6 +14,7 @@ export default class Card{
     //Функция удаляющая карточки со страницы
     _handleCardDelete = () => {
         this._cloneElement.remove();
+        this._cloneElement = null;
     } 
 
     //Функция ставящая и убирающая лайк
