@@ -33,13 +33,11 @@ const section = new Section({
 section.addCards();
 
 const popupChangeProfile = new PopupWithForm(popupProfileFormSelector, (data) => {
-    // evt.preventDefault();
     userInfo.setUserInfo(data);
     popupChangeProfile.close();
 })
 
 const popupAddImage = new PopupWithForm(popupImageFormSelector, (data) => {
-    // evt.preventDefault();
     section.addItem(data);
     popupAddImage.close();
 });
