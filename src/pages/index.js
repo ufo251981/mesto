@@ -22,23 +22,28 @@ const userInfo = new UserInfo(configUserInfo);
 
 const popupWithImage = new PopupWithImage(popupImageSelector);
 
+const createCard = (data) => {
+    const card = new Card(data, templateSelector, popupWithImage.open);
+    return card.createCard()
+}
 const section = new Section({
     items: initialCards,
-    renderer: (element) => {
-        const card = new Card(element, templateSelector, popupWithImage.open);
-        return card.createCard()
+    renderer: (data) => {
+        section.addItem(createCard(data))
     }
 }, placesSelector);
 
 section.addCards();
 
+// Меняем данные в профиле
 const popupChangeProfile = new PopupWithForm(popupProfileFormSelector, (data) => {
     userInfo.setUserInfo(data);
     popupChangeProfile.close();
-})
+});
 
+// Добавляем новую карточку на страницу
 const popupAddImage = new PopupWithForm(popupImageFormSelector, (data) => {
-    section.addItem(data);
+    section.render(data);
     popupAddImage.close();
 });
 
@@ -47,7 +52,6 @@ Array.from(document.forms).forEach(item => {
     const name = item.getAttribute('name');
     formValidator[name] = form;
     form.enableValidation();
-    console.log(form, form);
 })
 
 popupWithImage.setEventListeners();

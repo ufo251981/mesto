@@ -31,7 +31,6 @@ const initialCards = [
       link: altay
   }
 ];
-
 const popupImageSelector = '.popup_zoom';
 const templateSelector = '#template';
 const placesSelector = '.places'
