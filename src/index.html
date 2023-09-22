@@ -16,7 +16,7 @@
     <!--Основной блок-->
     <section class="profile">
       <div class="profile__image-after">
-        <img id="avatar" src="#"  class="profile__image">
+        <img src="#"  class="profile__image">
       </div>
       <div class="profile__label">
         <h1 class="profile__info"></h1>
@@ -71,14 +71,14 @@
       <form name="place" class="popup__form popup__form_add_new-place" novalidate>
         <div class="popup__input-container">
           <input id="title" type="text" required minlength="2" 
-          maxlength="30" name="title" 
+          maxlength="30" name="place-title" 
           placeholder="Название" 
           class="popup__input popup__input_place_name">
           <span class="popup__error popup-error-title"></span>
         </div>
         <div class="popup__input-container">
           <input id="link" type="url" required
-          name="link" placeholder="Ссылка на картинку" 
+          name="place-links" placeholder="Ссылка на картинку" 
           class="popup__input popup__input_place_link">
           <span class="popup__error popup-error-link"></span>
         </div>
