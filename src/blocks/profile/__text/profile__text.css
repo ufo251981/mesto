@@ -11,6 +11,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    cursor: context-menu;
 }
 
 @media screen and (min-width: 700px) {

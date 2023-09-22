@@ -1,0 +1,45 @@
+.profile__image-after {
+  margin: 0 auto;
+  position: relative;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.profile__image-after::before{
+  content: '';
+  background-image: url(../../../image/logo/Big_pencel.svg);
+  background-color: rgba(0, 0, 0, .8);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 26px 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity ease-in-out 0.5s;
+}
+.profile__image-after:hover::before{
+  opacity: 1;
+}
+
+@media screen and (min-width: 700px) {
+  .profile__image-after {
+      grid-column: 1;
+      grid-row: 1/-1;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .profile__image-after {
+      margin: 41px 0 0 0;
+  }
+}

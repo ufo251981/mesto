@@ -5,6 +5,7 @@
     font-size: calc( (100vw - 320px)/(1280 - 320) * (18 - 14) + 14px);
     line-height: 17px;
     color: #545454;
+    cursor: context-menu;
 }
 
 @media screen and (min-width: 1280px) {
