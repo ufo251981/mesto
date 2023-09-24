@@ -39,16 +39,15 @@ const popupDeleteCard = new PopupDeleteCard(popupDeleteCardSelector, ({card, car
     api.deleteCard(cardId)
         .then(() => {
             card.removeClone()
+            popupDeleteCard.close()
         })
         .catch((error) => console.error(`Ошибка при удалении карточки ${error}`))
-        .finally(() => popupDeleteCard.setTextDefault())
-        
-        popupDeleteCard.close()
+        .finally(() => popupDeleteCard.setTextDefault())  
 })
 
 const createCard = (data) => {
-    const card = new Card(data, templateSelector, popupWithImage.open, popupDeleteCard.open, (cardId, likeButton) => {
-        if (likeButton.classList.contains('place__like_active')){
+    const card = new Card(data, templateSelector, popupWithImage.open, popupDeleteCard.open, (cardId) => {
+        if (card.checkButton()){
             api.deleteLike(cardId)
                 .then(res => {
                     card.toggleLike(res.likes)
@@ -73,7 +72,7 @@ const section = new Section((data) => {
 const popupChangeProfile = new PopupWithForm(popupProfileFormSelector, (data) => {
     api.setUserInfo(data)
         .then((res) => {
-            userInfo.setUserInfo({ avatar: res.avatar, username: res.name, text: res.about });
+            userInfo.setUserInfo({ avatar: res.avatar, username: res.name, text: res.about, _id: res._id });
             popupChangeProfile.close();
         })
         .catch((error) => console.error(`Ошибка при редактировании профиля пользователя ${error}`))
@@ -83,9 +82,9 @@ const popupChangeProfile = new PopupWithForm(popupProfileFormSelector, (data) =>
 
 // Добавляем новую карточку на страницу
 const popupAddImage = new PopupWithForm(popupImageFormSelector, (data) => {
-    Promise.all([api.getInfo(), api.addCardOnServer(data)])
-        .then(([dataUser, cardData]) => {
-            cardData.adminId = dataUser._id
+    Promise.all([api.addCardOnServer(data)])
+        .then(([cardData]) => {
+            cardData.adminId = cardData.owner._id
             section.addItem(createCard(cardData))
             popupAddImage.close();
         })
@@ -96,7 +95,7 @@ const popupAddImage = new PopupWithForm(popupImageFormSelector, (data) => {
 const popupChangeAvatar = new PopupWithForm(popupChangeAvatarSelector, (data) => {
     api.setAvatar(data)
     .then(res => {
-        userInfo.setUserInfo({ avatar: res.avatar, username: res.name, text: res.about });
+        userInfo.setUserInfo({ avatar: res.avatar, username: res.name, text: res.about});
         popupChangeAvatar.close();
     })
     .catch((error) => console.error(`Ошибка при редактировании аватара ${error}`))
@@ -119,12 +118,14 @@ popupDeleteCard.setEventListeners();
 
 buttonEdit.addEventListener('click', () => {
     formValidator.profile.resetValidationState();
+    // loadUserData();
     popupChangeProfile.setInputsValue(userInfo.getUserInfo());
     popupChangeProfile.open();
 });
 
 buttonAdd.addEventListener('click', () => {
     formValidator.place.resetValidationState();
+    // loadUserData()
     popupAddImage.open();
 });
 

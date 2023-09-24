@@ -1,6 +1,5 @@
 export default class Card{
     constructor(data, templateSelector, handleZoomImage, popupDeleteCard, changeLike){
-        // console.log(data);
         this._data = data,
         this._templateSelector = templateSelector,
         this._handleZoomImage = handleZoomImage,
@@ -56,6 +55,10 @@ export default class Card{
     removeClone() {
         this._cloneElement.remove();
         this._cloneElement = null;
+    }
+
+    checkButton() {
+        return this._likeButton.classList.contains('place__like_active')
     }
 
     createCard() {
