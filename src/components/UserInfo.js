@@ -3,6 +3,12 @@ export default class UserInfo {
     this._profileName = document.querySelector(configUserInfo.profileNameSelector);
     this._profileJob = document.querySelector(configUserInfo.profileJobSelector);
     this._profileAvatar = document.querySelector(configUserInfo.profileAvatarSelector);
+    this._profileId = undefined
+  }
+
+  getUserId() {
+    return this._profileId
+    
   }
 
   getUserInfo() {
@@ -18,5 +24,9 @@ export default class UserInfo {
     this._profileAvatar.src = avatar;
     this._profileName.textContent = username;
     this._profileJob.textContent = text;
+    this._profileId = id
+    // console.log(this._profileId)
   }
+
+  
 }

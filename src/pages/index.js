@@ -31,6 +31,13 @@ const api = new Api({
     }
   });
 
+Promise.all([api.getInfo(), api.getCards()])
+    .then(([dataUser, cardData]) => {
+        userInfo.setUserInfo({avatar: dataUser.avatar, username: dataUser.name, text: dataUser.about, id: dataUser._id});
+        section.addCards(cardData.reverse())
+    })
+    .catch((error) => console.error(`Ошибка при отрисовки карточек с сервера ${error}`))
+
 const userInfo = new UserInfo(configUserInfo);
 
 const popupWithImage = new PopupWithImage(popupImageSelector);
@@ -46,7 +53,7 @@ const popupDeleteCard = new PopupDeleteCard(popupDeleteCardSelector, ({card, car
 })
 
 const createCard = (data) => {
-    const card = new Card(data, templateSelector, popupWithImage.open, popupDeleteCard.open, (cardId) => {
+    const card = new Card({...data, adminId: userInfo.getUserId()}, templateSelector, popupWithImage.open, popupDeleteCard.open, (cardId) => {
         if (card.checkButton()){
             api.deleteLike(cardId)
                 .then(res => {
@@ -82,8 +89,8 @@ const popupChangeProfile = new PopupWithForm(popupProfileFormSelector, (data) =>
 
 // Добавляем новую карточку на страницу
 const popupAddImage = new PopupWithForm(popupImageFormSelector, (data) => {
-    Promise.all([api.addCardOnServer(data)])
-        .then(([cardData]) => {
+    api.addCardOnServer(data)
+        .then((cardData) => {
             cardData.adminId = cardData.owner._id
             section.addItem(createCard(cardData))
             popupAddImage.close();
@@ -91,6 +98,9 @@ const popupAddImage = new PopupWithForm(popupImageFormSelector, (data) => {
         .catch((error) => console.error(`Ошибка при добавлении карточки на страницу ${error}`))
         .finally(() => popupAddImage.setTextDefault())
 });
+
+// userInfo.getUserId()
+// console.log(userInfo.getUserId());
 
 const popupChangeAvatar = new PopupWithForm(popupChangeAvatarSelector, (data) => {
     api.setAvatar(data)
@@ -134,13 +144,5 @@ profileChangeButton.addEventListener('click', () => {
     popupChangeAvatar.open();
 })
 
-Promise.all([api.getInfo(), api.getCards()])
-    .then(([dataUser, cardData]) => {
-        cardData.forEach(element => {
-            element.adminId = dataUser._id
-        })
-        userInfo.setUserInfo({avatar: dataUser.avatar, username: dataUser.name, text: dataUser.about});
-        section.addCards(cardData.reverse())
-    })
-    .catch((error) => console.error(`Ошибка при отрисовки карточек с сервера ${error}`))
+
     
