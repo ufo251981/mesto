@@ -19,6 +19,7 @@ function Main(props) {
         cardData.forEach(data => data.adminId = dataUser._id)
         setCards(cardData)
       })
+      .catch((error) => console.error(`Ошибка при отрисовки карточек с сервера ${error}`))
   },[])
 
   return(

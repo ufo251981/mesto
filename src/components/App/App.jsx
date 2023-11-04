@@ -37,7 +37,6 @@ function App() {
   function handleCardClick(card) {
     setSelectedCard(card)
     setIsZoomPopup(true)
-    // setEvtListener()
   }
 
   return (

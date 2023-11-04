@@ -4,13 +4,13 @@ function Header() {
   return(
     <div>
       {/*Шапка сайта с логотипом*/}
-  <header className="header">
-    <img
-      src={logoFull}
-      alt="Логотип сайта Место"
-      className="header__logo"
-    />
-  </header>
+      <header className="header">
+        <img
+          src={logoFull}
+          alt="Логотип сайта Место"
+          className="header__logo"
+        />
+      </header>
     </div>
   )
 }
