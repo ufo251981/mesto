@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import api from "../../utils/api.js"
-import Cards from "../Cards/Cards.jsx"
+import Card from "../Card/Card.jsx"
 
 
 function Main(props) {
@@ -42,7 +42,7 @@ function Main(props) {
           {cards.map(data => {
             return(
             <div id="place" className="place" key={data._id}>
-              <Cards card={data} onCardClick={props.onCardClick}/>
+              <Card card={data} onCardClick={props.onCardClick}/>
             </div>)
           })}
         

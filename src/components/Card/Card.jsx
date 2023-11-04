@@ -1,4 +1,4 @@
-function Cards({card, onCardClick}) {
+function Card ({card, onCardClick}) {
   return(
     <article>
       <div className="place__image-block">
@@ -20,4 +20,4 @@ function Cards({card, onCardClick}) {
   )
 }
 
-export default Cards
+export default Card
