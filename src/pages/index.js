@@ -31,18 +31,12 @@ const api = new Api({
     }
   });
 
-Promise.all([api.getInfo(), api.getCards()])
-    .then(([dataUser, cardData]) => {
-        userInfo.setUserInfo({avatar: dataUser.avatar, username: dataUser.name, text: dataUser.about, id: dataUser._id});
-        section.addCards(cardData.reverse())
-    })
-    .catch((error) => console.error(`Ошибка при отрисовки карточек с сервера ${error}`))
-
 const userInfo = new UserInfo(configUserInfo);
 
 const popupWithImage = new PopupWithImage(popupImageSelector);
 
 const popupDeleteCard = new PopupDeleteCard(popupDeleteCardSelector, ({card, cardId}) => {
+    console.log(card, cardId);/*  */
     api.deleteCard(cardId)
         .then(() => {
             card.removeClone()
@@ -53,7 +47,7 @@ const popupDeleteCard = new PopupDeleteCard(popupDeleteCardSelector, ({card, car
 })
 
 const createCard = (data) => {
-    const card = new Card({...data, adminId: userInfo.getUserId()}, templateSelector, popupWithImage.open, popupDeleteCard.open, (cardId) => {
+    const card = new Card(data, templateSelector, popupWithImage.open, popupDeleteCard.open, (cardId) => {
         if (card.checkButton()){
             api.deleteLike(cardId)
                 .then(res => {
@@ -79,7 +73,7 @@ const section = new Section((data) => {
 const popupChangeProfile = new PopupWithForm(popupProfileFormSelector, (data) => {
     api.setUserInfo(data)
         .then((res) => {
-            userInfo.setUserInfo({ avatar: res.avatar, username: res.name, text: res.about, _id: res._id });
+            userInfo.setUserInfo({ avatar: res.avatar, username: res.name, text: res.about });
             popupChangeProfile.close();
         })
         .catch((error) => console.error(`Ошибка при редактировании профиля пользователя ${error}`))
@@ -87,11 +81,24 @@ const popupChangeProfile = new PopupWithForm(popupProfileFormSelector, (data) =>
     
 });
 
+function loadUserData() {
+    api.getInfo()
+        .then((data) => {
+            userInfo.getUserInfo(data)
+        })
+}
+
+loadUserData()
+
+// const apiGetInfo = api.getInfo()
+// console.log(apiGetInfo);
+
 // Добавляем новую карточку на страницу
 const popupAddImage = new PopupWithForm(popupImageFormSelector, (data) => {
-    api.addCardOnServer(data)
-        .then((cardData) => {
-            cardData.adminId = cardData.owner._id
+    // console.log(data);
+    Promise.all([/*loadUserData(), */api.addCardOnServer(data)])
+        .then(([/*dataUser,*/ cardData]) => {
+            cardData.adminId = userInfo.getUserInfo._id
             section.addItem(createCard(cardData))
             popupAddImage.close();
         })
@@ -99,13 +106,10 @@ const popupAddImage = new PopupWithForm(popupImageFormSelector, (data) => {
         .finally(() => popupAddImage.setTextDefault())
 });
 
-// userInfo.getUserId()
-// console.log(userInfo.getUserId());
-
 const popupChangeAvatar = new PopupWithForm(popupChangeAvatarSelector, (data) => {
     api.setAvatar(data)
     .then(res => {
-        userInfo.setUserInfo({ avatar: res.avatar, username: res.name, text: res.about});
+        userInfo.setUserInfo({ avatar: res.avatar, username: res.name, text: res.about });
         popupChangeAvatar.close();
     })
     .catch((error) => console.error(`Ошибка при редактировании аватара ${error}`))
@@ -128,14 +132,12 @@ popupDeleteCard.setEventListeners();
 
 buttonEdit.addEventListener('click', () => {
     formValidator.profile.resetValidationState();
-    // loadUserData();
     popupChangeProfile.setInputsValue(userInfo.getUserInfo());
     popupChangeProfile.open();
 });
 
 buttonAdd.addEventListener('click', () => {
     formValidator.place.resetValidationState();
-    // loadUserData()
     popupAddImage.open();
 });
 
@@ -144,5 +146,13 @@ profileChangeButton.addEventListener('click', () => {
     popupChangeAvatar.open();
 })
 
-
+Promise.all([api.getInfo(), api.getCards()])
+    .then(([dataUser, cardData]) => {
+        cardData.forEach(element => {
+            element.adminId = dataUser._id
+        })
+        userInfo.setUserInfo({avatar: dataUser.avatar, username: dataUser.name, text: dataUser.about});
+        section.addCards(cardData.reverse())
+    })
+    .catch((error) => console.error(`Ошибка при отрисовки карточек с сервера ${error}`))
     
