@@ -1,26 +1,18 @@
-import { useEffect, useState } from "react"
-import api from "../../utils/api.js"
+import { useContext } from "react";
+
 import Card from "../Card/Card.jsx"
+import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
 
-function Main(props) {
-
-  const [userName, setUserName] = useState('')
-  const [userDiscription, setUserDiscription] = useState('')
-  const [userAvatar, setUserAvatar] = useState('')
-  const [cards, setCards] = useState([])
-
-  useEffect(() => {
-    Promise.all([api.getInfo(), api.getCards()])
-      .then(([dataUser, cardData]) => {
-        setUserName(dataUser.name)
-        setUserDiscription(dataUser.about)
-        setUserAvatar(dataUser.avatar)
-        cardData.forEach(data => data.adminId = dataUser._id)
-        setCards(cardData)
-      })
-      .catch((error) => console.error(`Ошибка при отрисовки карточек с сервера ${error}`))
-  },[])
+function Main({
+  onEditProfile,
+  onAddPlace,
+  onEditAvatar,
+  onCardClick,
+  onDelete, 
+  cards}) {
+  
+  const currentUser = useContext(CurrentUserContext)
 
   return(
     <div>
@@ -28,22 +20,22 @@ function Main(props) {
       <main className="main">
         {/*Основной блок*/}
         <section className="profile">
-          <div className="profile__image-after" onClick={props.onEditAvatar}>
-            <img src={userAvatar} alt="" className="profile__image" />
+          <div className="profile__image-after" onClick={onEditAvatar}>
+            <img src={currentUser.avatar ? currentUser.avatar : "#"} alt="Аватар профиля" className="profile__image" />
           </div>
           <div className="profile__label">
-            <h1 className="profile__info">{userName}</h1>
-           <button onClick={props.onEditProfile} className="profile__edit-button" type="button"></button>
+            <h1 className="profile__info">{currentUser.name ? currentUser.name : ""}</h1>
+           <button onClick={onEditProfile} className="profile__edit-button" type="button"></button>
          </div>
-         <p className="profile__text">{userDiscription}</p>
-          <button className="profile__add-button" type="button" onClick={props.onAddPlace}></button>
+         <p className="profile__text">{currentUser.about ? currentUser.about : ""}</p>
+          <button className="profile__add-button" type="button" onClick={onAddPlace}></button>
        </section>
        {/*Блок с фото мест*/}
        <section aria-label="Grid-photo" className="places">
           {cards.map(data => {
             return(
             <div id="place" className="place" key={data._id}>
-              <Card card={data} onCardClick={props.onCardClick}/>
+              <Card card={data} onCardClick={onCardClick} onCardDelete={onDelete}/>
             </div>)
           })}
         

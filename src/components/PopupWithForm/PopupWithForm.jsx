@@ -1,21 +1,24 @@
-function PopupWithForm(props) {
+function PopupWithForm({name, buttonTitle, title, isOpen, onClose, children, onSubmit, isSending, isValid=true}) {
+// console.log(isValid)
   return(
-    <div className={`popup popup_type_${props.name} ${props.isOpen && 'popup_opened'}`}>
-    <div className="popup__container">
-      <button className="popup__button popup__button-close" onClick={props.onClose} type="button" />
-      <h2 className="popup__title">{props.title}</h2>
+    <div className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`} onClick={onClose}>
+    <div className="popup__container" onClick={(evt => evt.stopPropagation())}>
+      <button className="popup__button popup__button-close" onClick={onClose} type="button" />
+      <h2 className={`popup__title ${name === 'delete-card' ? 'popup__title_type-delete' : ''}`}>{title}</h2>
       <form
-        name={props.name}
+        name={name}
         className="popup__form popup__form_edit-profile"
-        noValidate=""
+        noValidate
+        onSubmit={onSubmit}
       >
-        {props.children}
+        {children}
       <button
           type="submit"
           value="Сохранить"
-          className="popup__button-save popup__button-save_new-profile"
+          disabled={isSending}
+          className={`popup__button-save ${isValid ? '' : 'popup__button-save_disabled'}`}
         >
-          {props.buttonTitle}
+          {isSending ? `${buttonTitle}...` : buttonTitle}
         </button>
       </form>
     </div>
