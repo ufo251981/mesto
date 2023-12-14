@@ -2,7 +2,7 @@
 import useFormValidation from "../../utils/useFormValidation"
 import PopupWithForm from "../PopupWithForm/PopupWithForm"
 
-function EditPlacePopup(isOpen, onClose, onUpdatePlace, isSending) {
+function AddPlacePopup({isOpen, onClose, onUpdatePlace, isSending}) {
   const {values, errors, isValid, isValidInput, handleChange, reset} = useFormValidation()
   // const input = useRef()
 
@@ -13,19 +13,19 @@ function EditPlacePopup(isOpen, onClose, onUpdatePlace, isSending) {
 
   function handleSubmit(evt) {
     evt.preventDefault()
-    onUpdatePlace({name: values.placetitle, link: values.placelink}, reset)
+    onUpdatePlace({title: values.placetitle, link: values.placelink}, reset)
   }
 
   return(
     <PopupWithForm
-      name="addplace"
+      name="add-place"
       title="Новое место"
       buttonTitle="Создать"
       isOpen={isOpen}
       onClose={resetOnClose}
       isValid={isValid}
-      onSubmit={handleSubmit}
       isSending={isSending}
+      onSubmit={handleSubmit}
     >
       <div className="popup__input-container">
         <input
@@ -63,4 +63,4 @@ function EditPlacePopup(isOpen, onClose, onUpdatePlace, isSending) {
   )
 }
 
-export default EditPlacePopup
+export default AddPlacePopup

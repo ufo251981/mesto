@@ -9,7 +9,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 import api from '../../utils/api.js';
 import EditProfilePopup from '../EditProfilePopup/EditProfilePopup.jsx';
 import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup.jsx';
-import EditPlacePopup from '../EditPlacePopup/EditPlacePopup.jsx';
+import AddPlacePopup from '../AddPlacePopup/AddPlacePopup.jsx';
 
 function App() {
 
@@ -129,7 +129,7 @@ function App() {
     setIsSending(true)
     api.addCardOnServer(data)
       .then(res => {
-        setCards(res)
+        setCards([res, ...cards])
         closeAllPopups()
         reset()
         setIsSending(false)
@@ -160,8 +160,8 @@ function App() {
           isSending={isSending}
         />
 
-        <EditPlacePopup
-          // isOpen={isAddPlacePopupOpen}
+        <AddPlacePopup
+          isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           onUpdatePlace={handleUpdatePlace}
           isSending={isSending}

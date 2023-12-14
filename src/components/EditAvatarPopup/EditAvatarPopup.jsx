@@ -5,7 +5,7 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm"
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, isSending }) {
   const {values, errors, isValid, isValidInput, handleChange, reset} = useFormValidation()
   const input = useRef()
-  console.log(input);
+  
   function resetOnClose() {
     onClose()
     reset()

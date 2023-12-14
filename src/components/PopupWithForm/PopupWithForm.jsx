@@ -7,7 +7,7 @@ function PopupWithForm({name, buttonTitle, title, isOpen, onClose, children, onS
       <h2 className={`popup__title ${name === 'delete-card' ? 'popup__title_type-delete' : ''}`}>{title}</h2>
       <form
         name={name}
-        className="popup__form popup__form_edit-profile"
+        className={`popup__form popup__form_${name}`}
         noValidate
         onSubmit={onSubmit}
       >
